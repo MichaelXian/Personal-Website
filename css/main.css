@@ -68,12 +68,12 @@ h1 {
 }
 .container-left {
     width: 70%;
-    height: 12.5em;
+    height: 200px;
     float: left;
 }
 .container-right {
     margin-left: 70%;
-    height: 12.5em;
+    height: 200px;
 }
 .blue {
     color: white;
