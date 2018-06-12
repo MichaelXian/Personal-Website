@@ -167,8 +167,11 @@ h1 {
     color: black;
     text-align: center;
 }
-#attributions p,a{
+#attributions p,a,img {
     color: black;
+}
+#attributions img {
+    float: left;
 }
 .link {
     color: blue;
