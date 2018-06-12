@@ -119,8 +119,10 @@ h1 {
 }
 */
 .iconLarge {
-    height: 3em;
     width: 3em;
+}
+.icon {
+    width: 2em;
 }
 #header {
     padding: 0;
@@ -155,11 +157,15 @@ h1 {
     height: 20%;
     float: left;
 }
+.skills-left img {
+    float: left;
+    width: 2em;
+}
 .skills-right {
     margin-left: 70%;
     height: 20%;
 }
 .year-title {
     color: black;
-    text-decoration: underline;
+    text-align: center;
 }
