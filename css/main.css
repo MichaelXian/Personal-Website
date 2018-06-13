@@ -199,3 +199,15 @@ h2 {
     font-size: 2em;
     text-decoration: underline;
 }
+.button {
+    padding: none;
+    margin: none;
+    border: none;
+
+}
+#filter {
+    font-size: 2em;
+    float: right;
+    height: 2em;
+    width: 4em;
+}
