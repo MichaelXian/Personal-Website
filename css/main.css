@@ -103,6 +103,9 @@ h1 {
 .background-blue {
     background-color: #0063A8; 
 }
+.background-brown {
+    background-color: #FFB627; 
+}
 
 .infoItem {
     height: 50%;
@@ -171,15 +174,22 @@ h1 {
     margin-left: 70%;
     height: 100%;
 }
+.skills-right p {
+   line-height: 2em;
+}
 .year-title {
     color: black;
     text-align: center;
 }
-#attributions p,a,img {
-    color: black;
+#attributions {
+    padding: 1em;
 }
 #attributions img {
     float: left;
+}
+#attributions p {
+    line-height: 2em;
+    margin-left: 2.5em;
 }
 .link {
     color: blue;
