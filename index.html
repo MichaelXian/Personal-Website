@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Michael Xian | Home</title>
-        <script src="jquery-1.12.4.min.js"> </script>
+        <script src="javascript/jquery-3.3.1.min.js"></script>
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/dropdown.css">
     </head>
@@ -37,13 +37,14 @@
         </div>
         </section>
         <br>
-        <button id="filter" class="brown button" onClick="">Filter</button>
+        <button id="filter" class="brown button" onClick="filterButton();">Filter</button>
         <div class="custom-select blue" style="width:200px;">
-          <select>
-            <option value="all">All</option>
+          <select id="filter-dropdown">
+            <option class="selected-option" value="all">All</option>
             <option value="all">All</option>
             <option value="c3">C#</option>
             <option value="unity">Unity</option>
+            <option value="java">Java</option>
           </select>
         </div>
         <br>
@@ -52,11 +53,12 @@
         <br>
         <br>
         <div id="showcase">
-            <div class="year background-blue" skills="unity c3">
-                <h1 id="2018" class="year-title">2018</h1>
-                <a href="projects/w1ck3dpr0bl3m5.html">
+            <div id="2018" class="year background-blue">
+                <h1  class="year-title">2018</h1>
+                
+                <a id="w1ck3dpr0bl3m5" href="projects/w1ck3dpr0bl3m5.html">
                 <div class="item blue">
-                    <div id="w1ck3dpr0bl3m5" class="item-left">
+                    <div  class="item-left">
                     <h2>W1ck3dpr0bl3m5</h2> <br>
                     <p>A virtual reality learning-aid made to help give context to students in the ASTU401G (Wicked Problems) course at UBC</p>
                     </div>
@@ -72,6 +74,25 @@
                     </div>
                 </div>
                 </a>
+                
+                <a id="things-and-stuff" href="projects/w1ck3dpr0bl3m5.html">
+                <div class="item blue">
+                    <div class="item-left">
+                    <h2>Things and stuff</h2> <br>
+                    <p>things and stuff</p>
+                    </div>
+                    <div class="item-right">
+                    <img class="item-image" src="assets/images/wickedproblems.png">
+                    </div>
+                    <div class="skills">
+                        <div class="skills-left">
+                            <img src="assets/icons/unity.png">
+                        </div>
+                        <div class="skills-right"> <p>Unity</p> </div>
+                    </div>
+                </div>
+                </a>
+                
             </div>
         </div>
         <br>
@@ -85,10 +106,63 @@
         <script src="javascript/dropdown.js"></script>
         <script>
             
+            contains = [];
+            notContains = [];
+            transitionTime = 500;
+            
+            function filterButton() {
+                var selectedSkill = $(".selected-option").attr("value");
+                //var selectedSkill = document.getElementsByClassName("selected-option")[0].getAttribute("value");
+                //alert(selectedSkill);
+                filter(selectedSkill);
+                return selectedSkill;
+            }
+            
+            function filter(skill) {
+            contains = [];
+            notContains = [];
+                if (skill === "all") {
+                    showAll();
+                } else {
+                    sortItems(skill);
+                    hideShow();
+                }
+
+            }
+            
+            function showAll() {
+                skills.forEach( function (value, key) {
+                    $(key).show(transitionTime);
+                })
+            }
+            
+            function sortItems(skill) {
+                skills.forEach( function (value, key) {
+                        if (value.includes(skill)) {
+                            contains.push(key)
+                        } else {
+                            notContains.push(key);
+                        }
+                    })
+            }
+            
+            function hideShow() {
+                contains.forEach(function(id) {
+                    $(id).show(transitionTime);
+                })
+                notContains.forEach(function(id) {
+                    $(id).hide(transitionTime);
+                })
+            }
+            
+            
+
+            
             
             skills = new Map();
-            skills.set("W1ck3dpr0bl3m5",["c3","unity"]);
-            skills.set("2018",["c3","unity"]);
+            skills.set("#w1ck3dpr0bl3m5",["c3","unity"]);
+            skills.set("#things-and-stuff",["unity"]);
+            skills.set("#2018",["c3","unity"]);
         </script>
     </body>
 </html>
